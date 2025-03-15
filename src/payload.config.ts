@@ -11,6 +11,12 @@ import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
+import { CoverLetter } from './collections/CoverLetter'
+import { CoverLetterHeader } from './collections/CoverLetterHeader'
+import { CoverLetterInfo } from './collections/CoverLetterInfo'
+import { CoverLetterRecipient } from './collections/CoverLetterRecipient'
+import { CoverLetterBody } from './collections/CoverLetterBody'
+import { CoverLetterSignature } from './collections/CoverLetterSignature'
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
 import { plugins } from './plugins'
@@ -64,7 +70,19 @@ export default buildConfig({
       connectionString: process.env.POSTGRES_URL || '',
     },
   }),
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [
+    Pages,
+    Posts,
+    Media,
+    Categories,
+    Users,
+    CoverLetter,
+    CoverLetterHeader,
+    CoverLetterInfo,
+    CoverLetterRecipient,
+    CoverLetterBody,
+    CoverLetterSignature,
+  ],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
   plugins: [
