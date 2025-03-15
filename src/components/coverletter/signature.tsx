@@ -6,7 +6,7 @@ type InfoProps = {
   text: string
 }
 
-export const Signature: React.FC<InfoProps> = ({ name, text, signature }): JSX.Element => {
+export const Signature: React.FC<InfoProps> = ({ name, text, signature }) => {
   return (
     <div className="font-serif text-gray-800">
       <p className="font-medium ">{text},</p>

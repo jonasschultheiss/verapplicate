@@ -9,13 +9,7 @@ type HeaderProps = {
   image: StaticImageData
 }
 
-export const Header: React.FC<HeaderProps> = ({
-  name,
-  phoneNumber,
-  email,
-  address,
-  image,
-}): JSX.Element => {
+export const Header: React.FC<HeaderProps> = ({ name, phoneNumber, email, address, image }) => {
   return (
     <div className="flex flex-row items-center justify-between w-full">
       <div className="flex flex-col items-start justify-start">
