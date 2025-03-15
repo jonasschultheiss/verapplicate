@@ -10,7 +10,12 @@ type RecipientProps = {
   }
 }
 
-export const Recipient: React.FC<RecipientProps> = ({ name, role, email, company }) => {
+export const Recipient: React.FC<RecipientProps> = ({
+  name,
+  role,
+  email,
+  company,
+}): JSX.Element => {
   return (
     <div className="flex flex-col">
       <pre className="text-xs font-bold">To:</pre>

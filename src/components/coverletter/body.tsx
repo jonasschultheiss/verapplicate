@@ -8,7 +8,7 @@ type BodyProps = {
   body: string | object
 }
 
-export const Body: React.FC<BodyProps> = ({ title, subTitle, body }) => {
+export const Body: React.FC<BodyProps> = ({ title, subTitle, body }): React.ReactElement => {
   // Parse the body content if it's a string that might be JSON
   let richTextContent: any = body
 
