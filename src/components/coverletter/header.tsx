@@ -1,15 +1,15 @@
-import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/solid';
-import Image, { StaticImageData } from 'next/image';
+import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/solid'
+import Image, { StaticImageData } from 'next/image'
 
 type HeaderProps = {
-  name: string;
-  phoneNumber: string;
-  email: string;
-  address: string;
-  image: StaticImageData;
-};
+  name: string
+  phoneNumber: string
+  email: string
+  address: string
+  image: StaticImageData
+}
 
-export const Header: React.FC<HeaderProps> = ({ name, phoneNumber, email, address, image }): JSX.Element => {
+export const Header: React.FC<HeaderProps> = ({ name, phoneNumber, email, address, image }) => {
   return (
     <div className="flex flex-row items-center justify-between w-full">
       <div className="flex flex-col items-start justify-start">
@@ -31,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({ name, phoneNumber, email, addres
           </h4>
         </div>
       </div>
-      <Image quality={100} src={image} alt={`image of ${name}`} width={100} />
+      {image && <Image quality={100} src={image} alt={`image of ${name}`} width={100} />}
     </div>
-  );
-};
+  )
+}
