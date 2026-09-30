@@ -72,6 +72,7 @@ export interface Config {
     categories: Category;
     users: User;
     'cover-letters': CoverLetter;
+    'cover-letter-senders': CoverLetterSender;
     'cover-letter-headers': CoverLetterHeader;
     'cover-letter-info': CoverLetterInfo;
     'cover-letter-recipients': CoverLetterRecipient;
@@ -94,6 +95,7 @@ export interface Config {
     categories: CategoriesSelect<false> | CategoriesSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'cover-letters': CoverLettersSelect<false> | CoverLettersSelect<true>;
+    'cover-letter-senders': CoverLetterSendersSelect<false> | CoverLetterSendersSelect<true>;
     'cover-letter-headers': CoverLetterHeadersSelect<false> | CoverLetterHeadersSelect<true>;
     'cover-letter-info': CoverLetterInfoSelect<false> | CoverLetterInfoSelect<true>;
     'cover-letter-recipients': CoverLetterRecipientsSelect<false> | CoverLetterRecipientsSelect<true>;
@@ -749,16 +751,37 @@ export interface CoverLetter {
   title: string;
   slug?: string | null;
   slugLock?: boolean | null;
-  header: number | CoverLetterHeader;
-  info: number | CoverLetterInfo;
+  sender?: (number | null) | CoverLetterSender;
+  header?: (number | null) | CoverLetterHeader;
+  info?: (number | null) | CoverLetterInfo;
   recipient: number | CoverLetterRecipient;
   body: number | CoverLetterBody;
-  signature: number | CoverLetterSignature;
+  signature?: (number | null) | CoverLetterSignature;
   status: 'draft' | 'review' | 'sent';
   /**
    * Date when this cover letter was sent
    */
   sentDate?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "cover-letter-senders".
+ */
+export interface CoverLetterSender {
+  id: number;
+  name: string;
+  phoneNumber: string;
+  email: string;
+  address: string;
+  portrait: number | Media;
+  place: string;
+  /**
+   * the words before the signature, the component still adds the comma
+   */
+  closing: string;
+  signature: number | Media;
   updatedAt: string;
   createdAt: string;
 }
@@ -1051,6 +1074,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'cover-letters';
         value: number | CoverLetter;
+      } | null)
+    | ({
+        relationTo: 'cover-letter-senders';
+        value: number | CoverLetterSender;
       } | null)
     | ({
         relationTo: 'cover-letter-headers';
@@ -1437,6 +1464,7 @@ export interface CoverLettersSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   slugLock?: T;
+  sender?: T;
   header?: T;
   info?: T;
   recipient?: T;
@@ -1444,6 +1472,22 @@ export interface CoverLettersSelect<T extends boolean = true> {
   signature?: T;
   status?: T;
   sentDate?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "cover-letter-senders_select".
+ */
+export interface CoverLetterSendersSelect<T extends boolean = true> {
+  name?: T;
+  phoneNumber?: T;
+  email?: T;
+  address?: T;
+  portrait?: T;
+  place?: T;
+  closing?: T;
+  signature?: T;
   updatedAt?: T;
   createdAt?: T;
 }

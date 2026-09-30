@@ -1,12 +1,14 @@
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from '@heroicons/react/24/solid'
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
+
+import type { LetterImage } from '@/utilities/loadCoverLetter'
 
 type HeaderProps = {
   name: string
   phoneNumber: string
   email: string
   address: string
-  image: StaticImageData
+  image: LetterImage
 }
 
 export const Header: React.FC<HeaderProps> = ({ name, phoneNumber, email, address, image }) => {

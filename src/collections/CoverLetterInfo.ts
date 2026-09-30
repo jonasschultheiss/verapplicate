@@ -1,20 +1,19 @@
 import type { CollectionConfig } from 'payload'
 
 import { anyone } from '../access/anyone'
-import { authenticated } from '../access/authenticated'
 
 export const CoverLetterInfo: CollectionConfig = {
   slug: 'cover-letter-info',
   access: {
-    create: authenticated,
-    delete: authenticated,
+    create: () => false,
+    delete: () => false,
     read: anyone,
-    update: authenticated,
+    update: () => false,
   },
   admin: {
     useAsTitle: 'place',
     defaultColumns: ['place'],
-    group: 'Cover Letter',
+    group: 'Cover Letter (legacy)',
   },
   fields: [
     {
