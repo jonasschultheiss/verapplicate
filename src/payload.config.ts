@@ -13,6 +13,7 @@ import { Pages } from './collections/Pages'
 import { Posts } from './collections/Posts'
 import { Users } from './collections/Users'
 import { CoverLetter } from './collections/CoverLetter'
+import { CoverLetterSender } from './collections/CoverLetterSender'
 import { CoverLetterHeader } from './collections/CoverLetterHeader'
 import { CoverLetterInfo } from './collections/CoverLetterInfo'
 import { CoverLetterRecipient } from './collections/CoverLetterRecipient'
@@ -78,6 +79,7 @@ export default buildConfig({
     Categories,
     Users,
     CoverLetter,
+    CoverLetterSender,
     CoverLetterHeader,
     CoverLetterInfo,
     CoverLetterRecipient,

@@ -1,7 +1,9 @@
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
+
+import type { LetterImage } from '@/utilities/loadCoverLetter'
 
 type InfoProps = {
-  signature: StaticImageData
+  signature: LetterImage
   name: string
   text: string
 }
